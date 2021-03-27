@@ -28,6 +28,14 @@ client.connect(err => {
         // console.log(newBooking);
     })
 
+    app.get('/bookings', (req, res) => {
+        // console.log(req.query.email);
+        bookings.find({email: req.query.email})  // ({}) find all
+        .toArray((err, documents) => { // convert result into to array
+            res.send(documents);
+        })
+    })
+
 
 });
 
